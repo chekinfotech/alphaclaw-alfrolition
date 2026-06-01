@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "accounts": [
+    {
+      "id": "fdfb6759",
+      "email": "support@chekinfotech.com",
+      "client": "default",
+      "personal": false,
+      "services": [
+        "docs:read",
+        "sheets:read"
+      ],
+      "authenticated": true,
+      "gmailWatch": {
+        "enabled": false,
+        "port": null,
+        "expiration": null,
+        "lastPushAt": null,
+        "pid": null
+      }
+    }
+  ],
+  "gmailPush": {
+    "token": "9S0SFV1pMzJq_d8yqgeCzC76BDRurDvi",
+    "topics": {}
+  }
+}

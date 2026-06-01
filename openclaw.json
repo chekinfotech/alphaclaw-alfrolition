@@ -8,7 +8,19 @@
       "models": {
         "openai-codex/gpt-5.5": {}
       }
-    }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "Main Agent",
+        "workspace": "/data/.openclaw/workspace",
+        "agentDir": "/data/.openclaw/agents/main/agent",
+        "model": {
+          "primary": "openai-codex/gpt-5.5"
+        }
+      }
+    ]
   },
   "gateway": {
     "mode": "local",
@@ -54,14 +66,19 @@
   },
   "meta": {
     "lastTouchedVersion": "2026.5.28",
-    "lastTouchedAt": "2026-06-01T22:49:34.712Z"
+    "lastTouchedAt": "2026-06-01T23:05:55.556Z"
   },
   "channels": {
     "discord": {
       "enabled": true,
-      "token": "${DISCORD_BOT_TOKEN}",
-      "dmPolicy": "pairing",
-      "groupPolicy": "allowlist"
+      "accounts": {
+        "default": {
+          "name": "Discord",
+          "token": "${DISCORD_BOT_TOKEN}",
+          "dmPolicy": "pairing"
+        }
+      },
+      "defaultAccount": "default"
     }
   },
   "plugins": {
@@ -87,7 +104,10 @@
     }
   },
   "commands": {
-    "restart": true
+    "restart": true,
+    "ownerAllowFrom": [
+      "discord:1006694282800926762"
+    ]
   },
   "hooks": {
     "internal": {
@@ -108,7 +128,21 @@
       "openai-codex:codex-cli": {
         "provider": "openai-codex",
         "mode": "oauth"
+      },
+      "openai:default": {
+        "provider": "openai",
+        "mode": "api_key"
       }
     }
-  }
+  },
+  "bindings": [
+    {
+      "type": "route",
+      "agentId": "main",
+      "match": {
+        "channel": "discord",
+        "accountId": "default"
+      }
+    }
+  ]
 }
