@@ -1,0 +1,114 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/data/.openclaw/workspace",
+      "model": {
+        "primary": "openai-codex/gpt-5.5"
+      },
+      "models": {
+        "openai-codex/gpt-5.5": {}
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "434b65d16cf7ac7ca1041c61693008f27aeff311396f4554"
+    },
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "trustedProxies": [
+      "127.0.0.1"
+    ],
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:3000"
+      ]
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "full",
+    "exec": {
+      "security": "full",
+      "strictInlineEval": false
+    }
+  },
+  "skills": {
+    "install": {
+      "nodeManager": "npm"
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-06-01T22:49:33.683Z",
+    "lastRunVersion": "2026.5.28",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.5.28",
+    "lastTouchedAt": "2026-06-01T22:49:34.712Z"
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "token": "${DISCORD_BOT_TOKEN}",
+      "dmPolicy": "pairing",
+      "groupPolicy": "allowlist"
+    }
+  },
+  "plugins": {
+    "allow": [
+      "discord",
+      "usage-tracker"
+    ],
+    "load": {
+      "paths": [
+        "/usr/local/lib/node_modules/@chrysb/alphaclaw/lib/plugin/usage-tracker"
+      ]
+    },
+    "entries": {
+      "discord": {
+        "enabled": true
+      },
+      "usage-tracker": {
+        "enabled": true,
+        "hooks": {
+          "allowConversationAccess": true
+        }
+      }
+    }
+  },
+  "commands": {
+    "restart": true
+  },
+  "hooks": {
+    "internal": {
+      "entries": {
+        "bootstrap-extra-files": {
+          "enabled": true,
+          "paths": [
+            "hooks/bootstrap/AGENTS.md",
+            "hooks/bootstrap/TOOLS.md"
+          ]
+        }
+      },
+      "enabled": true
+    }
+  },
+  "auth": {
+    "profiles": {
+      "openai-codex:codex-cli": {
+        "provider": "openai-codex",
+        "mode": "oauth"
+      }
+    }
+  }
+}
