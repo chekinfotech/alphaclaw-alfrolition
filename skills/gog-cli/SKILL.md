@@ -1,6 +1,13 @@
 ---
 name: gog-cli
 description: Google Workspace CLI (gog) — command reference for Sheets, Docs.
+triggers:
+  - google workspace
+  - gog
+  - google sheets
+  - google docs
+  - sheets
+  - docs
 ---
 
 # gog — Google Workspace CLI

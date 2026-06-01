@@ -3,7 +3,9 @@
 _Learn about the person you're helping. Update this as you go._
 
 - **Name:**
+  Alfrolition
 - **What to call them:**
+  dude
 - **Pronouns:** _(optional)_
 - **Timezone:**
 - **Notes:**
